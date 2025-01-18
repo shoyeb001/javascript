@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<button onclick="func()">Add to Card</button>
+		<script>
+			const func = addtocart();
+			function addtocart() {
+				let has = false;
+				setTimeout(() => {
+					has = true;
+				}, 300);
+
+				return () => {
+					if (has) {
+						console.log("added to cart");
+					} else {
+						console.log("Sorry! product not available");
+					}
+				};
+			}
+		</script>
+	</body>
+</html>
