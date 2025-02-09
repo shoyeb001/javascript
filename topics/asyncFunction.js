@@ -20,3 +20,18 @@ async function promiseHandel() {
 }
 
 promiseHandel();
+
+
+//async function can work on object that has then method with resolve and reject. 
+
+async function callData(){
+	const data = await {
+		then: function(resolve, reject){
+			setTimeout(() => {
+				resolve("Data is resolved");
+			}, 2000);
+		}
+	}
+	console.log(data);
+}
+callData();

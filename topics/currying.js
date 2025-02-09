@@ -16,28 +16,50 @@ let multiply = function (x){
     }
 }
 
-let multiplyByTwo = multiply(2);
-let multiplyByThree = multiply(3);
-multiplyByTwo(3);
-multiplyByThree(3);
+multiply(2)(3)
+
+//currying besr interview question. Imeplement sum(1)(2)(3)(4)....()
+
+// function sum(a){
+//     return function(b){
+//         if(b) return sum(a+b);
+//         return a;
+//     }
+// }
+
+// console.log(sum(1)(2)(3)(4)(5)(6)());
+
+// // implement sum(a,b,c) in curring like sum(a)(b)(c) 
+
+// const sum1 = (a,b,c)=>{
+//     return a+b+c;
+// }
+
+// function curryFunc(fn){
+//     return function innerFunc(...arg){
+//         if(arg.length>=fn.length){
+//             return fn(...arg);
+//         }else{
+//             return function(...next){
+//                 return function(){
+//                     return innerFunc(...arg, ...next)
+//                 }
+//             }
+//         }
+        
+//     }
+// }
+
+// console.log(sum1(5,3,2));
+// const curry = curryFunc(sum1);
+// console.log(curry(5)(3)(2));
 
 
-function sum(n1,n2){
-    let val = valApi();
-    return function(){
-        return n1+n2+val;
-    } 
+function sum(a){
+    return function(b){
+        return function(c){
+            return a+b+c;
+        }
+    }
 }
-
-const callSum = sum(3,5);
-
-
-setTimeout(() => {
-    console.log("latest Sum", callSum());
-}, 2000);
-
-function valApi(){
-    setTimeout(()=>{
-        return 20;
-    },100)
-}
+console.log(sum(1)(2)(3));

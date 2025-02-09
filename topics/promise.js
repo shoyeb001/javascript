@@ -4,3 +4,5 @@ products.then((data) => {
 	console.log(data); //printing the response after the promise fullfill
 });
 //promise are immutable. You cannot edit data. 
+
+
